@@ -1,5 +1,3 @@
-// frontend/src/redux/actions/companyActions.js
-
 import axios from 'axios';
 import {
   GET_ALL_COMPANIES_REQUEST,
@@ -60,7 +58,7 @@ export const updateCompany = (companyId, updatedCompany) => async (dispatch) => 
   try {
     dispatch({ type: UPDATE_COMPANY_REQUEST });
 
-    const response = await axios.put(`https://backend-eteva-tech.onrender.com/${companyId}`, updatedCompany);
+    const response = await axios.put(`https://backend-eteva-tech.onrender.com/companies/${companyId}`, updatedCompany);
     const updatedCompanyData = response.data;
 
     dispatch({ type: UPDATE_COMPANY_SUCCESS, payload: updatedCompanyData });
@@ -76,7 +74,7 @@ export const deleteCompany = (companyId) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_COMPANY_REQUEST });
 
-    await axios.delete(`https://backend-eteva-tech.onrender.com/${companyId}`);
+    await axios.delete(`https://backend-eteva-tech.onrender.com/companies/${companyId}`);
     dispatch({ type: DELETE_COMPANY_SUCCESS });
   } catch (error) {
     dispatch({ type: DELETE_COMPANY_FAILURE, payload: error.message });

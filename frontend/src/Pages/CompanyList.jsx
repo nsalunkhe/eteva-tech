@@ -32,20 +32,28 @@ const CompanyList = () => {
     setEditingCompany(null);
   };
 
-  const handleUpdate = (id, updatedCompany) => {
-    dispatch(updateCompany(id, updatedCompany));
-    setEditingCompany(null);
-    setShowUpdateAlert(true);
-    setShowDeleteAlert(false); // Make sure delete alert is hidden
-    // window.location.reload(); // Reload the page after updating
+  const handleUpdate = async (id, updatedCompany) => {
+    try {
+      await dispatch(updateCompany(id, updatedCompany));
+      setEditingCompany(null);
+      setShowUpdateAlert(true);
+      setShowDeleteAlert(false); // Make sure delete alert is hidden
+      dispatch(getAllCompanies()); // Fetch all companies again after the update
+    } catch (error) {
+      // Handle error if necessary
+    }
   };
 
-  const handleDelete = (id) => {
-    if (window.confirm('Are you sure you want to delete this company?')) {
-      dispatch(deleteCompany(id));
-      setShowDeleteAlert(true);
-      setShowUpdateAlert(false); // Make sure update alert is hidden
-      // window.location.reload(); // Reload the page after deleting
+  const handleDelete = async (id) => {
+    try {
+      if (window.confirm('Are you sure you want to delete this company?')) {
+        await dispatch(deleteCompany(id));
+        setShowDeleteAlert(true);
+        setShowUpdateAlert(false); // Make sure update alert is hidden
+        dispatch(getAllCompanies()); // Fetch all companies again after the delete
+      }
+    } catch (error) {
+      // Handle error if necessary
     }
   };
 
