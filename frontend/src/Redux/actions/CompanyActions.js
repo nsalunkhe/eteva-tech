@@ -24,7 +24,7 @@ export const getAllCompanies = () => async (dispatch) => {
   try {
     dispatch({ type: GET_ALL_COMPANIES_REQUEST });
 
-    const { data } = await axios.get('http://localhost:5000/companies');
+    const { data } = await axios.get('https://backend-eteva-tech.onrender.com/companies');
     dispatch({ type: GET_ALL_COMPANIES_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_ALL_COMPANIES_FAILURE, payload: error.message });
@@ -36,7 +36,7 @@ export const getCompanyById = (id) => async (dispatch) => {
   try {
     dispatch({ type: GET_COMPANY_BY_ID_REQUEST });
 
-    const { data } = await axios.get(`/api/companies/${id}`);
+    const { data } = await axios.get(`https://backend-eteva-tech.onrender.com/companies/${id}`);
     dispatch({ type: GET_COMPANY_BY_ID_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_COMPANY_BY_ID_FAILURE, payload: error.message });
@@ -48,7 +48,7 @@ export const addCompany = (newCompany) => async (dispatch) => {
   try {
     dispatch({ type: ADD_COMPANY_REQUEST });
 
-    await axios.post('http://localhost:5000/companies', newCompany);
+    await axios.post('https://backend-eteva-tech.onrender.com/companies', newCompany);
     dispatch({ type: ADD_COMPANY_SUCCESS });
   } catch (error) {
     dispatch({ type: ADD_COMPANY_FAILURE, payload: error.message });
@@ -60,7 +60,7 @@ export const updateCompany = (companyId, updatedCompany) => async (dispatch) => 
   try {
     dispatch({ type: UPDATE_COMPANY_REQUEST });
 
-    const response = await axios.put(`http://localhost:5000/companies/${companyId}`, updatedCompany);
+    const response = await axios.put(`https://backend-eteva-tech.onrender.com/${companyId}`, updatedCompany);
     const updatedCompanyData = response.data;
 
     dispatch({ type: UPDATE_COMPANY_SUCCESS, payload: updatedCompanyData });
@@ -76,7 +76,7 @@ export const deleteCompany = (companyId) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_COMPANY_REQUEST });
 
-    await axios.delete(`http://localhost:5000/companies/${companyId}`);
+    await axios.delete(`https://backend-eteva-tech.onrender.com/${companyId}`);
     dispatch({ type: DELETE_COMPANY_SUCCESS });
   } catch (error) {
     dispatch({ type: DELETE_COMPANY_FAILURE, payload: error.message });
