@@ -1,0 +1,16 @@
+.form{
+    width:200px;
+    height: 50px;
+    margin: auto;
+    text-decoration:none;
+    color:white;
+    background-color: royalblue;
+    margin-top: 40px;
+    margin-left: 100px;
+    padding-top: 10px;
+}
+.search-box{
+    width:30%;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}

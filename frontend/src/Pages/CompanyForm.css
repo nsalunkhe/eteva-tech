@@ -1,0 +1,39 @@
+/* CompanyForm.css */
+/* Add your custom CSS styles here */
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #248cbc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;  
+  }
+  @media (max-width: 767px) {
+    .form-container {
+      margin-top: 20px;
+    }
+}
+  /* Style form fields and labels */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-weight: 700;
+    color: rgb(17, 1, 7);
+    font-family: 'Times New Roman', Times, serif;
+  }
+ .submit{
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgb(20, 120, 250);
+ }
+  body{
+    background-color: bisque;
+  }
+h2{
+    font-family: 'Times New Roman', Times, serif;
+}
