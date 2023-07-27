@@ -37,7 +37,7 @@ const CompanyList = () => {
     setEditingCompany(null);
     setShowUpdateAlert(true);
     setShowDeleteAlert(false); // Make sure delete alert is hidden
-    window.location.reload(); // Reload the page after updating
+    // window.location.reload(); // Reload the page after updating
   };
 
   const handleDelete = (id) => {
@@ -45,7 +45,7 @@ const CompanyList = () => {
       dispatch(deleteCompany(id));
       setShowDeleteAlert(true);
       setShowUpdateAlert(false); // Make sure update alert is hidden
-      window.location.reload(); // Reload the page after deleting
+      // window.location.reload(); // Reload the page after deleting
     }
   };
 
