@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams, useNavigate } from 'react-router-dom'; // Update useHistory to useNavigate
-import { getCompanyById, updateCompany } from '../Redux/actions/CompanyActions'; // Ensure correct filename and case for import
+import { Link, useParams, useNavigate } from 'react-router-dom'; 
+import { getCompanyById, updateCompany } from '../Redux/actions/CompanyActions'; 
 
 const EditCompanyForm = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Update useHistory to useNavigate
+  const navigate = useNavigate(); 
   const { loading, error, company } = useSelector((state) => state.company);
   const [formData, setFormData] = useState({
     companyName: '',
@@ -38,7 +38,7 @@ const EditCompanyForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateCompany(id, formData, navigate)); // Update useHistory to useNavigate
+    dispatch(updateCompany(id, formData, navigate)); 
   };
 
   return (
@@ -50,7 +50,6 @@ const EditCompanyForm = () => {
         <p>{error}</p>
       ) : (
         <form onSubmit={handleSubmit}>
-          {/* Your form fields and input elements here */}
           <button type="submit">Update Company</button>
           <Link to="/">Cancel</Link>
         </form>
